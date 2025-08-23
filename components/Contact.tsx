@@ -31,21 +31,21 @@ export default function Contact() {
                 <Mail className="text-primary neon-glow" size={24} />
                 <div>
                   <p className="font-mono font-medium text-primary">ENCRYPTED EMAIL</p>
-                  <p className="text-muted-foreground font-mono text-sm">n0d1rb3k@protonmail.com</p>
+                  <p className="text-muted-foreground font-mono text-sm">nodirbeknegmatov2008@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 cyber-card p-4 rounded-lg">
                 <Phone className="text-primary neon-glow" size={24} />
                 <div>
                   <p className="font-mono font-medium text-primary">SECURE LINE</p>
-                  <p className="text-muted-foreground font-mono text-sm">+998 [CLASSIFIED]</p>
+                  <p className="text-muted-foreground font-mono text-sm">+998 [77 100 40 84]</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 cyber-card p-4 rounded-lg">
                 <MapPin className="text-primary neon-glow" size={24} />
                 <div>
                   <p className="font-mono font-medium text-primary">LOCATION</p>
-                  <p className="text-muted-foreground font-mono text-sm">Tashkent, Uzbekistan [GRID: 41.2995°N]</p>
+                  <p className="text-muted-foreground font-mono text-sm">Fergana, Uzbekistan</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 cyber-card p-4 rounded-lg">

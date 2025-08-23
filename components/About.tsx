@@ -136,7 +136,7 @@ export default function About() {
                 {[
                   { label: "Name", value: "Nodir" },
                   { label: "Role", value: "Frontend Developer" },
-                  { label: "Experience", value: "3+ Years" },
+                  { label: "Experience", value: "1+ Years" },
                   { label: "Location", value: "Uzbekistan" },
                 ].map((item, index) => (
                   <div
