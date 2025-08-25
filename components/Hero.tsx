@@ -1,62 +1,76 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, Monitor, Download, Sparkles, Code, Zap } from "lucide-react"
-import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button";
+import {
+  ArrowDown,
+  Github,
+  Linkedin,
+  Mail,
+  Monitor,
+  Download,
+  Sparkles,
+  Code,
+  Zap,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [text, setText] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
-  const [scrollY, setScrollY] = useState(0)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [mouseTrail, setMouseTrail] = useState<Array<{ x: number; y: number; id: number }>>([])
-  const fullText = "Frontend Developer"
-  const skills = ["React", "Next.js", "TypeScript", "Tailwind CSS"]
-  const [currentSkill, setCurrentSkill] = useState(0)
+  const [text, setText] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mouseTrail, setMouseTrail] = useState<
+    Array<{ x: number; y: number; id: number }>
+  >([]);
+  const fullText = "Frontend Developer";
+  const skills = ["React", "Next.js", "TypeScript", "Tailwind CSS"];
+  const [currentSkill, setCurrentSkill] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
+    const handleScroll = () => setScrollY(window.scrollY);
     const handleMouseMove = (e: MouseEvent) => {
-      const newPosition = { x: e.clientX, y: e.clientY }
-      setMousePosition(newPosition)
+      const newPosition = { x: e.clientX, y: e.clientY };
+      setMousePosition(newPosition);
       setMouseTrail((prev) => {
-        const newTrail = [...prev, { ...newPosition, id: Date.now() }].slice(-8)
-        return newTrail
-      })
-    }
+        const newTrail = [...prev, { ...newPosition, id: Date.now() }].slice(
+          -8
+        );
+        return newTrail;
+      });
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
-      setIsLoading(false)
-      let i = 0
+      setIsLoading(false);
+      let i = 0;
       const timer = setInterval(() => {
-        setText(fullText.slice(0, i))
-        i++
+        setText(fullText.slice(0, i));
+        i++;
         if (i > fullText.length) {
-          clearInterval(timer)
+          clearInterval(timer);
         }
-      }, 80)
-      return () => clearInterval(timer)
-    }, 1500)
+      }, 80);
+      return () => clearInterval(timer);
+    }, 1500);
 
-    return () => clearTimeout(loadingTimer)
-  }, [])
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   useEffect(() => {
     const skillTimer = setInterval(() => {
-      setCurrentSkill((prev) => (prev + 1) % skills.length)
-    }, 2000)
-    return () => clearInterval(skillTimer)
-  }, [])
+      setCurrentSkill((prev) => (prev + 1) % skills.length);
+    }, 2000);
+    return () => clearInterval(skillTimer);
+  }, []);
 
   if (isLoading) {
     return (
@@ -84,7 +98,9 @@ export default function Hero() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-foreground font-mono text-xl font-semibold gradient-text">nodir.dev</p>
+            <p className="text-foreground font-mono text-xl font-semibold gradient-text">
+              nodir.dev
+            </p>
             <p className="text-muted-foreground font-mono text-sm animate-pulse-soft">
               Initializing portfolio system...
             </p>
@@ -100,7 +116,7 @@ export default function Hero() {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -162,7 +178,9 @@ export default function Hero() {
               }}
             >
               <div
-                className={`w-${4 + i} h-${4 + i} border border-primary/30 ${i % 2 === 0 ? "rounded-full" : "rotate-45"} animate-spin-slow`}
+                className={`w-${4 + i} h-${4 + i} border border-primary/30 ${
+                  i % 2 === 0 ? "rounded-full" : "rotate-45"
+                } animate-spin-slow`}
               ></div>
             </div>
           ))}
@@ -170,7 +188,10 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto text-center relative z-10">
-        <div className="animate-fade-in-up" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+        <div
+          className="animate-fade-in-up"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+        >
           <div className="mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full glass-card mb-6 sm:mb-8 group hover:scale-105 transition-all duration-300 animate-pulse-soft">
               <div className="relative">
@@ -195,45 +216,56 @@ export default function Hero() {
             </p>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-mono">
               Specializing in{" "}
-              <span className="text-primary font-semibold animate-gradient-shift">{skills[currentSkill]}</span>
+              <span className="text-primary font-semibold animate-gradient-shift">
+                {skills[currentSkill]}
+              </span>
             </p>
           </div>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl lg:max-w-4xl mx-auto leading-relaxed">
-            Crafting exceptional digital experiences with modern web technologies.
+            Crafting exceptional digital experiences with modern web
+            technologies.
             <br className="hidden sm:block" />
-            Building performant, accessible, and user-friendly applications that make a difference.
+            Building performant, accessible, and user-friendly applications that
+            make a difference.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
             <Button
               size="lg"
               className="w-full sm:w-auto btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 group text-sm sm:text-base"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               <Monitor className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
               View My Work
               <Zap className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
             </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto glass-card glass-hover px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 bg-transparent group border-primary/30 hover:border-primary/50 text-sm sm:text-base"
-            >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-y-1 transition-transform duration-300" />
-              Download Resume
-              <Code className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-            </Button>
+            <a href="/Resume.pdf">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto glass-card glass-hover px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 bg-transparent group border-primary/30 hover:border-primary/50 text-sm sm:text-base"
+              >
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-y-1 transition-transform duration-300" />
+                Download Resume
+                <Code className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </Button>
+            </a>
           </div>
-
-        
         </div>
       </div>
 
       <div
         className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-float-gentle cursor-pointer group"
-        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() =>
+          document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
       >
         <div className="p-3 sm:p-4 rounded-full glass-card glass-hover group-hover:scale-110 transition-all duration-300">
           <ArrowDown className="text-primary group-hover:text-primary/80 transition-all group-hover:translate-y-1 duration-300 w-4 h-4 sm:w-5 sm:h-5" />
@@ -243,5 +275,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

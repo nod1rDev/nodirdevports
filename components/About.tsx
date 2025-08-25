@@ -177,8 +177,6 @@ export default function About() {
           </motion.div>
         </motion.div>
 
-    
-
         <motion.div
           variants={itemVariants}
           className="terminal-border rounded-xl p-8 lg:p-12 hologram relative overflow-hidden"
@@ -263,8 +261,6 @@ export default function About() {
               ))}
             </div>
           </div>
-
-          
         </motion.div>
 
         <motion.div variants={containerVariants} className="space-y-8 mb-20">
@@ -326,6 +322,75 @@ export default function About() {
               </motion.div>
             ))}
           </motion.div>
+        </motion.div>
+
+        
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="container mx-auto px-4 lg:px-8 relative z-10 max-w-7xl"
+        >
+          {/* Existing content ... */}
+
+          {/* CERTIFICATIONS SECTION */}
+          <motion.div variants={containerVariants} className="mb-20">
+            <motion.h3
+              variants={itemVariants}
+              className="font-mono font-semibold text-2xl lg:text-3xl mb-12 text-primary flex items-center"
+            >
+              <Terminal className="w-7 h-7 mr-3" />
+              CERTIFICATIONS
+            </motion.h3>
+
+            <div className="grid gap-12 lg:gap-16">
+              {/* Certificate 1 */}
+              <motion.div
+                variants={itemVariants}
+                className="grid lg:grid-cols-2 gap-8 items-center terminal-border p-6 rounded-xl hover:neon-glow transition"
+              >
+                <img
+                  src="/cefr.jpg"
+                  alt="English B2 Certificate"
+                  className="rounded-xl shadow-lg  h-[350px]  object-contain mx-auto"
+                />
+                <div className="space-y-4">
+                  <h4 className="text-primary font-mono text-xl font-semibold">
+                    English B2 Multi-level Certificate
+                  </h4>
+                  <p className="text-muted-foreground font-mono leading-relaxed">
+                    Achieved B2 proficiency in English, demonstrating advanced
+                    understanding in reading, writing, listening, and speaking.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Certificate 2 */}
+              <motion.div
+                variants={itemVariants}
+                className="grid lg:grid-cols-2 gap-8 items-center terminal-border p-6 rounded-xl hover:neon-glow transition"
+              >
+                <div className="order-2 lg:order-1 space-y-4">
+                  <h4 className="text-primary font-mono text-xl font-semibold">
+                    Najot Ta'lim Certificate
+                  </h4>
+                  <p className="text-muted-foreground font-mono leading-relaxed">
+                    Successfully completed intensive training at Najot Ta'lim in
+                    frontend development, focusing on modern frameworks and
+                    clean coding practices.
+                  </p>
+                </div>
+                <img
+                  src="/najotTalim.jpg"
+                  alt="Najot Ta'lim Certificate"
+                  className="order-1 lg:order-2 h-[350px]  rounded-xl shadow-lg   object-contain mx-auto"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Existing Work Experience Section ... */}
         </motion.div>
       </motion.div>
     </section>

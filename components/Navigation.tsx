@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Code2, Home, User, Briefcase, Mail } from "lucide-react";
+import {
+  Menu,
+  X,
+  Code2,
+  Home,
+  User,
+  Briefcase,
+  Mail,
+  Award,
+} from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +22,13 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ["home", "about", "projects", "contact"];
+      const sections = [
+        "home",
+        "about",
+        "certifications",
+        "projects",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -41,6 +56,7 @@ export default function Navigation() {
     { href: "#home", label: "Home", icon: Home },
     { href: "#about", label: "About", icon: User },
     { href: "#projects", label: "Projects", icon: Briefcase },
+
     { href: "#contact", label: "Contact", icon: Mail },
   ];
 
@@ -148,11 +164,11 @@ export default function Navigation() {
         </div>
 
         <div
-          className={`md:hidden fixed top-0 right-0 h-full w-80 bg-black/50 backdrop-blur-md z-50 transform transition-transform duration-300 ${
+          className={`md:hidden fixed -top-4 -right-4  min-h-screen w-80   z-50 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="p-4">
+          <div className="p-4 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950  min-h-[100vh]">
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 group overflow-hidden"
@@ -166,7 +182,7 @@ export default function Navigation() {
               </div>
             </button>
 
-            <div className="mt-2 p-4 glass-card rounded-xl">
+            <div className="mt-4 p-4 glass-card rounded-xl space-y-2">
               {navItems.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.href.slice(1);
@@ -179,7 +195,7 @@ export default function Navigation() {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className={`flex items-center gap-3 py-3 px-2 rounded-lg transition-all duration-300 font-medium border-b border-white/5 last:border-b-0 animate-slide-in-right ${
+                    className={`flex items-center gap-3 py-3 px-3 rounded-lg transition-all duration-300 font-medium border-b border-white/5 last:border-b-0 animate-slide-in-right ${
                       isActive
                         ? "text-primary bg-primary/10 shadow-inner"
                         : "text-muted-foreground hover:text-foreground hover:bg-white/5"
