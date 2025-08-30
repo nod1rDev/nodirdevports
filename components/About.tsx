@@ -93,10 +93,10 @@ export default function About() {
           variants={itemVariants}
           className="text-center mb-20 lg:mb-24"
         >
-          <div className="mb-6 font-mono text-sm text-muted-foreground animate-fade-in">
+          <div   className="mb-6 font-mono text-sm text-muted-foreground animate-fade-in">
             <span className="text-primary">[PROFILE]</span> DEVELOPER INFO
           </div>
-          <h2 className="font-mono font-bold text-4xl md:text-5xl lg:text-6xl mb-6 matrix-text">
+          <h2  className="font-mono font-bold text-4xl md:text-5xl lg:text-6xl mb-6 matrix-text">
             ABOUT ME
           </h2>
           <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
@@ -115,9 +115,9 @@ export default function About() {
             <div className="terminal-border rounded-xl p-8 relative group mx-auto lg:mx-0 w-full max-w-md lg:max-w-none hover:scale-105 transition-transform duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <img
-                src="/nodir.dev.jpg"
+                src="/nodir.dev.png"
                 alt="Nodir - Frontend Developer"
-                className="w-full h-[500px] md:h-[650px]  object-fill rounded-xl neon-glow relative z-10"
+                className="w-[80%] mx-auto h-[300px] md:h-[450px]   rounded-xl neon-glow relative z-10"
               />
               <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-primary rounded-full animate-pulse"></div>
             </div>
