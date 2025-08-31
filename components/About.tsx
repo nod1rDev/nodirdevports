@@ -1,6 +1,13 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Palette, Smartphone, Terminal } from "lucide-react";
+import {
+  Award,
+  CheckCircle2,
+  Code,
+  Palette,
+  Smartphone,
+  Terminal,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -18,6 +25,7 @@ export default function About() {
         "Team Collaboration",
         "Project Management",
       ],
+      logo: "/apexbart.png",
     },
     {
       company: "SmartBase",
@@ -31,6 +39,7 @@ export default function About() {
         "Algorithm Development",
         "Full-Stack Integration",
       ],
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR19AKoHF9-qBv_673-WEUjsptSPrLnJ3eWxA&s",
     },
     {
       company: "Najot Ta'lim",
@@ -40,6 +49,7 @@ export default function About() {
       description:
         "Mentored students in frontend development, conducted code reviews, and assisted in curriculum development.",
       highlights: ["Teaching", "Mentoring", "Technical Leadership"],
+      logo: "https://cdn.commeta.uz/media/uploaded/2023/09/26/najot_talim_logo.jpg",
     },
   ];
 
@@ -47,6 +57,21 @@ export default function About() {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const certifications = [
+    {
+      title: "English B2 Multi-level Certificate",
+      description:
+        "Achieved B2 proficiency in English, demonstrating advanced understanding in reading, writing, listening, and speaking.",
+      image: "/cefr.jpg",
+    },
+    {
+      title: "Najot Ta'lim Certificate",
+      description:
+        "Successfully completed intensive training at Najot Ta'lim in frontend development, focusing on modern frameworks and clean coding practices.",
+      image: "/najotTalim.jpg",
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,10 +98,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-16 bg-black/50 relative overflow-hidden scroll-smooth"
+      className="py-16 bg-black/50 relative overflow-hidden scroll-mt-20"
     >
-      <div className="absolute inset-0 cyber-grid opacity-20"></div>
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none"></div>
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary/30 rounded-full animate-pulse"></div>
         <div className="absolute top-40 right-20 w-1 h-1 bg-primary/40 rounded-full animate-ping"></div>
         <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-primary/20 rounded-full animate-bounce"></div>
@@ -93,10 +118,10 @@ export default function About() {
           variants={itemVariants}
           className="text-center mb-20 lg:mb-24"
         >
-          <div   className="mb-6 font-mono text-sm text-muted-foreground animate-fade-in">
+          <div className="mb-6 font-mono text-sm text-muted-foreground animate-fade-in">
             <span className="text-primary">[PROFILE]</span> DEVELOPER INFO
           </div>
-          <h2  className="font-mono font-bold text-4xl md:text-5xl lg:text-6xl mb-6 matrix-text">
+          <h2 className="font-mono font-bold text-4xl md:text-5xl lg:text-6xl mb-6 matrix-text">
             ABOUT ME
           </h2>
           <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
@@ -263,135 +288,125 @@ export default function About() {
           </div>
         </motion.div>
 
-        <motion.div variants={containerVariants} className="space-y-8 mb-20">
-          <motion.h3
-            variants={itemVariants}
-            className="font-mono font-semibold text-2xl lg:text-3xl mb-6 text-primary flex items-center"
-          >
-            <Terminal className="w-7 h-7 mr-3" />
-            WORK EXPERIENCE
-          </motion.h3>
+        <section className="py-20 relative">
+          <div className="text-center mb-16">
+            <h3 className="font-mono font-semibold text-3xl lg:text-4xl text-primary flex items-center justify-start gap-3">
+              <Terminal className="w-8 h-8" /> WORK EXPERIENCE
+            </h3>
+          </div>
 
-          <motion.div variants={containerVariants} className="grid gap-6">
-            {workExperience.map((job, index) => (
+          <div className="relative max-w-5xl mx-auto space-y-12">
+            {workExperience.map((job, idx) => (
               <motion.div
                 key={job.company}
-                variants={itemVariants}
-                custom={index}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="terminal-border border border-gray-700 rounded-xl p-6 relative group hover:neon-glow transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                className="relative flex items-start gap-6 rounded-2xl bg-black/40 backdrop-blur-md p-8 border border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Timeline Dot */}
+                <div className="absolute left-[-30px] top-10 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
+                  {idx !== workExperience.length - 1 && (
+                    <div className="w-px h-40 bg-gradient-to-b from-primary/50 to-transparent"></div>
+                  )}
+                </div>
 
-                <div className="relative z-10">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                    <div>
-                      <h4 className="text-primary text-xl font-mono font-semibold mb-2">
-                        {job.company}
-                      </h4>
-                      <p className="text-lg text-white/90 font-mono">
-                        {job.role}
-                      </p>
-                    </div>
+                {/* Logo */}
+                <div className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden  flex items-center justify-center">
+                  <img
+                    src={job.logo}
+                    alt={`${job.company} logo`}
+                    className="object-cover w-full h-full "
+                  />
+                </div>
 
-                    <div className="text-right">
-                      <div className="text-primary/80 font-mono mb-2">
-                        {job.period}
-                      </div>
-                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-mono border border-primary/30">
-                        {job.type}
-                      </span>
-                    </div>
+                {/* Content */}
+                <div className="flex-1 space-y-4">
+                  <div>
+                    <h4 className="text-2xl font-mono font-bold text-primary">
+                      {job.company}
+                    </h4>
+                    <p className="text-lg text-white/90 font-mono">
+                      {job.role}
+                    </p>
+                    <p className="text-sm text-primary/80 font-semibold mt-1">
+                      {job.period}
+                    </p>
+                    <span className="inline-block px-3 py-1 mt-2 text-sm font-mono rounded-full border border-primary/40 bg-primary/10 text-primary">
+                      {job.type}
+                    </span>
                   </div>
 
-                  <p className="text-muted-foreground font-mono leading-relaxed mb-4">
+                  <p className="text-muted-foreground font-mono leading-relaxed">
                     {job.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
-                    {job.highlights.map((highlight) => (
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    {job.highlights.map((h) => (
                       <span
-                        key={highlight}
-                        className="px-3 py-1 bg-gray-900/50 text-primary/90 rounded-full text-sm font-mono border border-primary/20"
+                        key={h}
+                        className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-mono bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition"
                       >
-                        {highlight}
+                        <CheckCircle2 className="w-4 h-4" /> {h}
                       </span>
                     ))}
                   </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </section>
 
-        
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="container mx-auto px-4 lg:px-8 relative z-10 max-w-7xl"
-        >
-          {/* Existing content ... */}
+        <div>
+          <div className="text-center mb-16">
+            <h3 className="font-mono font-semibold text-3xl lg:text-4xl text-primary flex items-center justify-start gap-3">
+              <Award className="w-8 h-8" /> CERTIFICATIONS
+            </h3>
+          </div>
 
-          {/* CERTIFICATIONS SECTION */}
-          <motion.div variants={containerVariants} className="mb-20">
-            <motion.h3
-              variants={itemVariants}
-              className="font-mono font-semibold text-2xl lg:text-3xl mb-12 text-primary flex items-center"
-            >
-              <Terminal className="w-7 h-7 mr-3" />
-              CERTIFICATIONS
-            </motion.h3>
-
-            <div className="grid gap-12 lg:gap-16">
-              {/* Certificate 1 */}
+          <div className="max-w-6xl mx-auto grid gap-12 lg:gap-16">
+            {certifications.map((cert, idx) => (
               <motion.div
-                variants={itemVariants}
-                className="grid lg:grid-cols-2 gap-8 items-center terminal-border p-6 rounded-xl hover:neon-glow transition"
+                key={cert.title}
+                whileHover={{ scale: 1.02 }}
+                className="grid lg:grid-cols-2 gap-8 items-center rounded-2xl bg-black/40 backdrop-blur-md p-8 border border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-500"
               >
-                <img
-                  src="/cefr.jpg"
-                  alt="English B2 Certificate"
-                  className="rounded-xl shadow-lg  h-[350px]  object-contain mx-auto"
-                />
-                <div className="space-y-4">
-                  <h4 className="text-primary font-mono text-xl font-semibold">
-                    English B2 Multi-level Certificate
-                  </h4>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Achieved B2 proficiency in English, demonstrating advanced
-                    understanding in reading, writing, listening, and speaking.
-                  </p>
-                </div>
+                {idx % 2 === 0 ? (
+                  <>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="rounded-xl shadow-lg h-[300px] object-contain mx-auto"
+                    />
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-mono font-semibold text-primary">
+                        {cert.title}
+                      </h4>
+                      <p className="text-muted-foreground font-mono leading-relaxed">
+                        {cert.description}
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="space-y-4 order-2 lg:order-1">
+                      <h4 className="text-xl font-mono font-semibold text-primary">
+                        {cert.title}
+                      </h4>
+                      <p className="text-muted-foreground font-mono leading-relaxed">
+                        {cert.description}
+                      </p>
+                    </div>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="rounded-xl shadow-lg h-[300px] object-contain mx-auto order-1 lg:order-2"
+                    />
+                  </>
+                )}
               </motion.div>
-
-              {/* Certificate 2 */}
-              <motion.div
-                variants={itemVariants}
-                className="grid lg:grid-cols-2 gap-8 items-center terminal-border p-6 rounded-xl hover:neon-glow transition"
-              >
-                <div className="order-2 lg:order-1 space-y-4">
-                  <h4 className="text-primary font-mono text-xl font-semibold">
-                    Najot Ta'lim Certificate
-                  </h4>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Successfully completed intensive training at Najot Ta'lim in
-                    frontend development, focusing on modern frameworks and
-                    clean coding practices.
-                  </p>
-                </div>
-                <img
-                  src="/najotTalim.jpg"
-                  alt="Najot Ta'lim Certificate"
-                  className="order-1 lg:order-2 h-[350px]  rounded-xl shadow-lg   object-contain mx-auto"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Existing Work Experience Section ... */}
-        </motion.div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   );

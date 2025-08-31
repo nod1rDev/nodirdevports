@@ -8,17 +8,16 @@ import Certifications from "@/components/Certifecations";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Navigation />
       <SocialSidebar />
 
       {/* Main content with proper responsive containers */}
-      <main className="relative">
+      <main className="relative z-10">
         <Hero />
-        <div className="">
+        <div className="relative z-20">
           <About />
           <Projects />
-          
           <Contact />
         </div>
       </main>

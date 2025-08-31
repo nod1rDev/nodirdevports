@@ -72,6 +72,20 @@ export const projects = [
     year: "2024",
   },
   {
+    title: "Super Pedagog",
+    description:
+      "Super Pedagog is a smart mobile app designed to support teachers and students with modern learning tools.",
+    tech: ["Next.js", "TypeScript", "CSS", "SCSS"],
+    image: "/pedagok.png",
+    status: "LIVE",
+    icon: Eye,
+    category: ["Mobile", "Modern", "Tools"],
+    github: "https://github.com/nod1rDev/super_pedagog", // This project has GitHub
+    demo: "https://super-pedagog.vercel.app/",
+    featured: true,
+    year: "2025",
+  },
+  {
     title: "E-Commerce Platform",
     description:
       "Modern e-commerce solution with advanced filtering, cart management, and secure payment integration.",
