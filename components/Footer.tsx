@@ -125,7 +125,7 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-gradient">nodir.dev</h3>
               <p className="text-muted leading-relaxed max-w-md">
-                Full Stack Developer & Digital Creator crafting innovative web experiences with modern technologies and
+                Full Stack Developer & Digital Creator crafting innovative web experiences with modern technologies 
                 thoughtful design.
               </p>
             </div>
