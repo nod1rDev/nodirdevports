@@ -4,7 +4,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import SocialSidebar from "@/components/SocialSidebar";
-import Certifications from "@/components/Certifecations";
+
 
 export default function Home() {
   return (

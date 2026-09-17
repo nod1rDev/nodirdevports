@@ -45,7 +45,7 @@ export default function Contact() {
                 <MapPin className="text-primary neon-glow" size={24} />
                 <div>
                   <p className="font-mono font-medium text-primary">LOCATION</p>
-                  <p className="text-muted-foreground font-mono text-sm">Fergana, Uzbekistan</p>
+                  <p className="text-muted-foreground font-mono text-sm">Toshkent, Uzbekistan</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 cyber-card p-4 rounded-lg">
